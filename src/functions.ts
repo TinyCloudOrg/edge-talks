@@ -49,7 +49,7 @@ export async function getMetadataFromSession(sessionId: string): Promise<VideoMe
  * @param assetId The asset ID from StreamETH
  * @returns The playback URL or null if not found
  */
-export async function getPlaybackUrlFromAsset(assetId: string): Promise<string | null> {
+export async function getDownloadUrlFromAsset(assetId: string): Promise<string | null> {
     try {
         const response = await fetch(`https://api.streameth.org/streams/asset/${assetId}`);
         
@@ -75,7 +75,7 @@ async function getPlaybackUrlFromSession(sessionId: string): Promise<string | nu
     const {assetId} = metadata;
     if (!assetId) return null;
     
-    return getPlaybackUrlFromAsset(assetId);
+    return getDownloadUrlFromAsset(assetId);
 }
 
 // const sessionId = '6725d82df861dff095655a38';

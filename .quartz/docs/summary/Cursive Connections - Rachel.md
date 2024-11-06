@@ -1,7 +1,22 @@
 # Cursive Connections - Rachel Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670fa09950c4a85480e618d0)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/e55279ax8qbl677w/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/e55279ax8qbl677w/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670fa09950c4a85480e618d0)
 
 ## Summary
 Cursive is exploring how cryptography can be used to foster human connections through a series of experiments culminating in the Cursive Connections app demonstrated at Edge City Lanna. The app utilizes NFC wristbands to securely collect digital signatures when people meet, visualizing these connections as a "flower garden". By leveraging private set intersection, users can discover common interests while preserving privacy. Novel features like "narrowcasting" allow users to signal availability for activities or hiring, getting matched when mutual interests align.

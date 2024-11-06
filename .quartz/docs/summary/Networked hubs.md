@@ -1,7 +1,22 @@
 # Networked hubs Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=6720919624af22d0ca4308dc)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/5c4ctxk33juj3594/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/5c4ctxk33juj3594/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=6720919624af22d0ca4308dc)
 
 ## Summary
 - The presenters propose using hotels and resorts as "living labs" to test interventions from behavioral science aimed at promoting human flourishing through habit formation and environmental design.

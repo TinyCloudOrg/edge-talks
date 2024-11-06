@@ -1,7 +1,22 @@
 # Demo - Ace Trading Card Game Summary
 
-## Overview
-Watch demo [here](https://streameth.org/edge_city/watch?session=670ca4172f3849fecfbae2cd)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/3397x3kfv97nu3t8/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/3397x3kfv97nu3t8/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch demo [at StreamETH](https://streameth.org/edge_city/watch?session=670ca4172f3849fecfbae2cd)
 
 ## Summary
 Ace is a physical trading card game that serves as a canvas for collective creativity, allowing players to design their own cards and shape the narratives around Web3 lore and mythology. Developed by Colton, a former character artist at Sony and creative director at Gitcoin, Ace aims to make Web3 concepts more accessible and engaging through gamification and storytelling.

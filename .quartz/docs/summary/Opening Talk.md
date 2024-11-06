@@ -1,7 +1,22 @@
 # Opening Talk Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=6726e58cf861dff0951e2512)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/1a97fb9rozks7zgl/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/1a97fb9rozks7zgl/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=6726e58cf861dff0951e2512)
 
 ## Summary
 This was the opening presentation for a hackathon at Edge City Lanna focused on building "Tools for Human Flourishing." The core themes were decentralization, AI/ML, defi, social applications, and "deshitification" - giving users more privacy and agency over their data.

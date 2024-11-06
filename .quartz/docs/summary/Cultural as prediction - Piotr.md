@@ -1,7 +1,22 @@
 # Cultural as prediction - Piotr Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=671233a301738fdb11155b17)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/6fccc799507jd39d/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/6fccc799507jd39d/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=671233a301738fdb11155b17)
 
 ## Summary
 - The presentation examines culture from a psychological and neuroscientific perspective, proposing that culture can be understood as the collective habits and behaviors of individuals in a society.

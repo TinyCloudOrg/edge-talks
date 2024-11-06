@@ -1,7 +1,22 @@
 # ZK-SXG - A simple data disclosure protocol Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670fb2ef50c4a85480eb2850)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/a66cjzckf52rl7oh/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/a66cjzckf52rl7oh/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670fb2ef50c4a85480eb2850)
 
 ## Summary
 Crema Labs, a blockchain research studio, presented a protocol called ZK-SXG (Zero-Knowledge Signed Exchange Gateways) that aims to bring verifiable web2 data onto blockchains like Ethereum. The core idea is to leverage technologies like TLS notary, SXDS (Signed Exchanges for Web Packages), and zero-knowledge proofs to selectively prove the authenticity of web data on-chain.

@@ -1,7 +1,22 @@
 # Chrysalis Collection - Metageist Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670e4c2250c4a85480bfaf27)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/df169k6jv8i74ylw/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/df169k6jv8i74ylw/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670e4c2250c4a85480bfaf27)
 
 ## Summary
 The speaker presents their vision for creating an interactive, immersive virtual reality experience in the form of a computer game or "metaverse" environment. They have been developing digital sculptures, characters, and assets as NFTs to fund this project, exploring the representation of "ugly" and dangerous aspects of nature often overlooked in existing metaverse aesthetics.

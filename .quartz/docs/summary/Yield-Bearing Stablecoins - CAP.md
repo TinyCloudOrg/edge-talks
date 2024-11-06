@@ -1,7 +1,22 @@
 # Yield-Bearing Stablecoins - CAP Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=6724e033f861dff095239b34)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/08772jsycsorpta6/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/08772jsycsorpta6/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=6724e033f861dff095239b34)
 
 ## Summary
 This presentation covers the landscape of yield-bearing stablecoins and innovative approaches to generate sustainable yields while mitigating risks. The speaker outlines three main sources of yield: leveraged lending, emission optimizers that capture protocol rewards, and emerging reserve models. 

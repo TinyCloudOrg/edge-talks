@@ -1,7 +1,22 @@
 # Hotels as "living" labs for GoodLife hacking? Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=67206f3a24af22d0ca3f110b)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/4c86oaujwxw7d7g8/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/4c86oaujwxw7d7g8/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=67206f3a24af22d0ca3f110b)
 
 ## Summary
 The core idea presented is leveraging hotels as "living labs" to apply insights from behavioral science towards facilitating positive habit formation and human flourishing. The speakers argue that despite good intentions, people struggle to change habits due to psychological barriers and lack of scientific rigor in translating research into real-world applications.

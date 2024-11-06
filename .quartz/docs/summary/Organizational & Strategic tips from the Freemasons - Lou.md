@@ -1,7 +1,22 @@
 # Organizational & Strategic tips from the Freemasons - Lou Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=6712294050c4a854801024c7)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/7806vxoq9z25r1kz/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/7806vxoq9z25r1kz/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=6712294050c4a854801024c7)
 
 ## Summary
 The presentation explores organizational and strategic insights derived from the Freemasons, a centuries-old fraternal society. It examines how Freemasonry emerged during periods of societal upheaval, transitioning from operative masonry (actual construction) to speculative masonry focused on philosophical inquiry and self-development.

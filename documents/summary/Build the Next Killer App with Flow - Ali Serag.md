@@ -1,7 +1,22 @@
 # Build the Next Killer App with Flow - Ali Serag Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=6725d82df861dff095655a38)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/1255h84qfo8oq1pj/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/1255h84qfo8oq1pj/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=6725d82df861dff095655a38)
 
 ## Summary
 The presentation focused on building the next generation of decentralized social applications leveraging the Flow blockchain. The speaker highlighted issues with current Web2 social platforms like mental health impacts, data exploitation, misinformation, and lack of monetization options for creators. He proposed that decentralized social apps built on Flow can address these by giving users ownership over data and content, enabling new monetization models, and allowing personalized, self-governed communities.

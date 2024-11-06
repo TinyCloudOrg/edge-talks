@@ -1,7 +1,22 @@
 # Fireside: Co-Building Edge City Social App Summary
 
-## Overview
-Watch panel [here](https://streameth.org/edge_city/watch?session=6725dcd0f861dff095742611)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/32e5ju34v7ni0igk/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/32e5ju34v7ni0igk/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch panel [at StreamETH](https://streameth.org/edge_city/watch?session=6725dcd0f861dff095742611)
 
 ## Summary
 This fireside chat explored the vision for building a decentralized social app tailored to the needs of the Edge City community during their month-long gathering in Chiang Mai. Edge City aims to accelerate human flourishing through experimental technology and social innovation.

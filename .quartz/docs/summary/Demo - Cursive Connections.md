@@ -1,7 +1,22 @@
 # Demo - Cursive Connections Summary
 
-## Overview
-Watch demo [here](https://streameth.org/edge_city/watch?session=670ca3702f3849fecfbaa706)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/c94cotu67uy05vb4/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/c94cotu67uy05vb4/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch demo [at StreamETH](https://streameth.org/edge_city/watch?session=670ca3702f3849fecfbaa706)
 
 ## Summary
 Cursive Connections is an app that leverages advanced cryptography to enable privacy-preserving sharing of personal data and facilitate meaningful connections between people. The core technology involves multi-party computation, homomorphic encryption, and private set intersection, which allow users to selectively reveal information and discover shared interests and contacts in a secure manner.

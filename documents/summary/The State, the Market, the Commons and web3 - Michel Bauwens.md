@@ -1,7 +1,22 @@
 # The State, the Market, the Commons and web3 - Michel Bauwens Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=671223d450c4a854800a8ce5)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/b8adzohorh9lhbqp/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/b8adzohorh9lhbqp/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=671223d450c4a854800a8ce5)
 
 ## Summary
 The speaker presents a macro-historical analysis of the evolution of human social organization, contrasting the dominance of civilizational market-state models over the past 5,000 years with the potential emergence of new "post-civilizational" forms driven by decentralized networks and revitalized commons-based governance.

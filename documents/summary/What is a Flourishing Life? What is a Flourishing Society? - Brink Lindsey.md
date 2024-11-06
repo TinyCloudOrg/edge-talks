@@ -1,7 +1,22 @@
 # What is a Flourishing Life? What is a Flourishing Society? - Brink Lindsey Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=67206f2e24af22d0ca3f10d0)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/a9bdykf4oqnop03b/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/a9bdykf4oqnop03b/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=67206f2e24af22d0ca3f10d0)
 
 ## Summary
 Brink Lindsey, a vice president at a Washington D.C. think tank, presents his perspective on the transition from material prosperity to widespread human flourishing as "the permanent problem" facing modern societies. He defines flourishing in terms of realizing human potential through relationships, projects, and experiences.

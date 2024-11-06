@@ -1,7 +1,22 @@
 # Turning Network Nations into a movement - Poli Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=671230d801738fdb1114e9ab)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/0d2envirc4y5pld4/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/0d2envirc4y5pld4/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=671230d801738fdb1114e9ab)
 
 ## Summary
 The presentation explores the concept of "Network Nations" and proposes strategies to transform it from an abstract idea into a widespread movement. The speaker draws parallels with other successful grassroots initiatives like Open Source software, the Maker movement, Effective Altruism, and the rise of Digital Nomads.

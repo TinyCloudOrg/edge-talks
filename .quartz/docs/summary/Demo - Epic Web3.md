@@ -1,7 +1,22 @@
 # Demo - Epic Web3 Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670ca1b52f3849fecfba447f)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/9b38qejl0mwtz9yc/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/9b38qejl0mwtz9yc/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670ca1b52f3849fecfba447f)
 
 ## Summary
 - The speaker, Ollie, is a co-founder of Epic Web3, which organizes conferences, side events, and hackathons for Web3 builders, primarily in the Ethereum and Tezos ecosystems.

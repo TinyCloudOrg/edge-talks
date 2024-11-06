@@ -1,7 +1,22 @@
 # Demo - OHM Wisdom Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670ca48d2f3849fecfbaf643)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/51e5f8031wqqd1wa/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/51e5f8031wqqd1wa/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670ca48d2f3849fecfbaf643)
 
 ## Summary
 The presentation introduces a novel framework called "Wisdom" that aims to quantify the relative value of diverse contributions within a community and incentivize engagement. The core idea is to have community members record and review contributions across multiple dimensions through pairwise comparisons. Reviews themselves are treated as valuable contributions and undergo a meta-review process. This generates a dataset that allows fitting a baseline function to automatically calculate the value of any contribution to the community in a multidimensional way.

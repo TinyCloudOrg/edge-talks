@@ -1,7 +1,22 @@
 # Using nematode worms to solve aging - Dr. Jan Gruber Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=67133ff98f864ede0365d63a)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/a98feeqlb5powenf/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/a98feeqlb5powenf/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=67133ff98f864ede0365d63a)
 
 ## Summary
 Dr. Jan Gruber presented on using the nematode worm C. elegans as a model for studying aging and identifying potential anti-aging interventions. C. elegans was the first organism where single gene mutations were found to significantly extend lifespan, suggesting regulated aging pathways exist. Over 600 compounds have now been identified that can extend lifespan in model organisms like worms and flies.

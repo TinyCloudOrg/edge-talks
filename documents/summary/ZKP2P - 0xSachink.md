@@ -1,7 +1,22 @@
 # ZKP2P - 0xSachink Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670fa2a350c4a85480e67dab)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/90fdhfypmce2orf3/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/90fdhfypmce2orf3/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670fa2a350c4a85480e67dab)
 
 ## Summary
 ZKP2P is building a decentralized peer-to-peer marketplace using zero-knowledge proofs and secure multi-party computation to enable trading of digital goods like tickets across existing web2 platforms. The core motivation is that current centralized platforms extract excessive value from users, lock in their data, and provide poor user experiences.

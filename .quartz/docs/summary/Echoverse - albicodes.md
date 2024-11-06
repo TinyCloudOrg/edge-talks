@@ -1,7 +1,22 @@
 # Echoverse - albicodes Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670fa3bd50c4a85480e6bb32)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/fa2f4o9k5dzdrbzc/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/fa2f4o9k5dzdrbzc/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670fa3bd50c4a85480e6bb32)
 
 ## Summary
 Speaker A presents the concept of "Echoverse", a proposed platform aimed at bridging the gap between Web3 protocols and thriving online communities. The core idea revolves around leveraging the existing user bases and engagement of popular social media accounts/influencers to drive adoption and traction for Web3 projects.

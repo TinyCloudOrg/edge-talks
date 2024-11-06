@@ -1,7 +1,22 @@
 # Vibe Check - Q Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670fa1eb50c4a85480e63141)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/314epb1n3l3wcz6m/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/314epb1n3l3wcz6m/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670fa1eb50c4a85480e63141)
 
 ## Summary
 - The speaker, Q (Chandresa), is an Albanian web developer and open-source enthusiast attending the Edge City Lanna residency.

@@ -1,7 +1,22 @@
 # Governance paradigms in history - Bob Haywood Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=671654d38f864ede039faa2a)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/932ea1hskdbm2kj9/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/932ea1hskdbm2kj9/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=671654d38f864ede039faa2a)
 
 ## Summary
 The speaker, Bob Haywood, provides an overview of historical governance paradigms, from tribal societies to the modern Westphalian nation-state system. He argues that after roughly 400-year cycles, a new global governance model is due to emerge to address contemporary challenges that nation-states struggle with, such as the environment, migration, AI risks, and human rights.

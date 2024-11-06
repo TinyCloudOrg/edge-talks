@@ -1,7 +1,22 @@
 # Longevity Biotech: Apotheosis of Medicine Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670f9cc750c4a85480e5d8b5)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/2c6c83mnq4utck3i/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/2c6c83mnq4utck3i/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670f9cc750c4a85480e5d8b5)
 
 ## Summary
 The core premise is that treating aging itself, rather than individual diseases, is the key to dramatically extending healthy human lifespan. The speaker outlines the biochemical "hallmarks of aging" that contribute to the aging process across species. By targeting these root causes through modalities like gene therapy, cell therapy (e.g. rejuvenating bone marrow stem cells), and drugs that enhance autophagy, his team aims to slow aging and ameliorate age-related diseases.

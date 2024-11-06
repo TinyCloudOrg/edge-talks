@@ -1,7 +1,22 @@
 # Community Demo Day #4 Summary
 
-## Overview
-Watch presentation | demo [here](https://streameth.org/edge_city/watch?session=67261679f861dff095d88c27)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/dcb1ezl7um15luxw/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/dcb1ezl7um15luxw/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation | demo [at StreamETH](https://streameth.org/edge_city/watch?session=67261679f861dff095d88c27)
 
 ## Summary
 Edge City Lanna is a month-long popup village focused on accelerating innovation across human organization, AI, crypto, health/longevity, and hard tech. This community demo day showcased a variety of projects being built and experimented with at the event.

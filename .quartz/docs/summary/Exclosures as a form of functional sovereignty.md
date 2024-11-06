@@ -1,7 +1,22 @@
 # Exclosures as a form of functional sovereignty Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=671b21ef9da0f165b839b30f)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/de1acsbuzgnc8ymy/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/de1acsbuzgnc8ymy/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=671b21ef9da0f165b839b30f)
 
 ## Summary
 The presentation introduces the concept of "exclosures" as a way to analyze how social groups create spaces of functional sovereignty and autonomy within surrounding legal/political systems. Exclosures are defined as self-defending, stable arrangements that leverage the rules of the surrounding system against itself to carve out autonomous spaces.

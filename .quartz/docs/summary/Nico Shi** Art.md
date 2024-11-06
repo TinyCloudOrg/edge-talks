@@ -1,7 +1,22 @@
 # Nico Shi** Art Summary
 
-## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=670e4c0b50c4a85480bf8eae)
+## Video
+<video id="video" controls></video>
+<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/b12566v2pulvywmz/index.m3u8"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/b12566v2pulvywmz/index.m3u8';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
+Watch presentation [at StreamETH](https://streameth.org/edge_city/watch?session=670e4c0b50c4a85480bf8eae)
 
 ## Summary
 Nico Shi** Art is an XR artist with a background in game development and a passion for exploring the intersection of art, ecology, and technology. In this presentation, Nico shares their work in creating virtual worlds and their research into solarpunk communities that aim to harmoniously integrate nature and technology.

@@ -103,6 +103,7 @@ async function getVideosWithoutTranscript(): Promise<NocoDBEvent[]> {
         where: `(transcript,eq,)`
       }
     );
+    console.log(response)
     return response.list as NocoDBEvent[];
   } catch (error) {
     console.error('Error getting videos without transcript:', error);
@@ -137,6 +138,7 @@ async function transcribeAllVideos(): Promise<void> {
   try {
     const transcriber = new AssemblyAITranscriber(config.ASSEMBLYAI_API_KEY);
     const videos = await getVideosWithoutTranscript();
+    console.log(`Transcribing ${videos.length} videos...`);
 
     for (const video of videos) {
       if (!video.download_url) {
@@ -146,7 +148,12 @@ async function transcribeAllVideos(): Promise<void> {
 
       console.log(`Transcribing video ${video.id}...`);
       const transcriptResult = await transcriber.transcribe(video.download_url);
-
+      // Save transcript result to file
+      if (transcriptResult && transcriptResult.text) {
+        const filename = `transcript-${video.id}.txt`;
+        fs.writeFileSync(filename, transcriptResult.text);
+        console.log(`Saved transcript to ${filename}`);
+      }
       if (transcriptResult && transcriptResult.text) {
         await updateVideoTranscript(
           video.id!,

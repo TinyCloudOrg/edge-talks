@@ -3,6 +3,7 @@ import { VideoMetadata } from './types';
 import { config } from './config';
 import fetch from 'node-fetch';
 import fs from 'fs';
+
 interface PaginatedResponse {
   status: string;
   message: string;
@@ -68,7 +69,7 @@ export async function getDownloadUrlFromAsset(assetId: string): Promise<string |
 }
 
 
-async function getPlaybackUrlFromSession(sessionId: string): Promise<string | null> {
+async function getDownloadUrlFromSession(sessionId: string): Promise<string | null> {
     const metadata = await getMetadataFromSession(sessionId);
     const {assetId} = metadata;
     if (!assetId) return null;
@@ -133,6 +134,7 @@ export async function getPaginatedSessions(page: number = 1, size: number = 12):
  */
 export async function getAllSessions(): Promise<VideoMetadata[]> {
   try {
+    console.log(`Fetching all sessions...`);
     let allSessions: VideoMetadata[] = [];
     let currentPage = 1;
     const pageSize = 10;
@@ -161,12 +163,5 @@ export async function getAllSessions(): Promise<VideoMetadata[]> {
     throw error;
   }
 }
-
-getAllSessions().then(sessions => {
-  fs.writeFileSync('sessions.json', JSON.stringify(sessions, null, 2));
-  console.log('Sessions written to sessions.json');
-}).catch(error => {
-  console.error('Error getting sessions:', error);
-});
 
 

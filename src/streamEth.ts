@@ -353,17 +353,17 @@ async function exportSummariesToMarkdown(): Promise<void> {
     const videos = await getVideosWithField('summary');
     console.log(`Exporting summaries for ${videos.length} videos...`);
 
-    // Create documents directory if it doesn't exist
-    if (!fs.existsSync('documents')) {
-      fs.mkdirSync('documents');
+    // Create documents/summary directory if it doesn't exist
+    if (!fs.existsSync('documents/summary')) {
+      fs.mkdirSync('documents/summary', { recursive: true });
     }
 
     // Export each video's summary to a markdown file
     for (const video of videos) {
       const name = video.name.replace(/[#]/g, '').trim();
       const summary = video.summary!.replace(/        /g, '');
-      fs.writeFileSync(`documents/${name}.md`, summary!);
-      console.log(`Exported summary for video ${video.Id} to documents/${name}.md`);
+      fs.writeFileSync(`documents/summary/${name}.md`, summary!);
+      console.log(`Exported summary for video ${video.Id} to documents/summary/${name}.md`);
     }
   } catch (error) {
     console.error('Error exporting summaries:', error);

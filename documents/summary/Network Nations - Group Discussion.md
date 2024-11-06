@@ -1,20 +1,10 @@
 # Network Nations - Group Discussion Summary
 
 ## Video
-<video id="video" controls></video>
-<script src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/c3716ckahbbpdl0p/index.m3u8"></script>
-<script>
-  var video = document.getElementById('video');
-  var videoSrc = 'https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/c3716ckahbbpdl0p/index.m3u8';
-  if (Hls.isSupported()) {
-    var hls = new Hls();
-    hls.loadSource(videoSrc);
-    hls.attachMedia(video);
-  }
-  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = videoSrc;
-  }
-</script>
+<video controls>
+<source src="https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/c3716ckahbbpdl0p/index.m3u8" type="application/x-mpegURL">
+  Your browser does not support the video tag.
+</video>
 
 Watch panel [at StreamETH](https://streameth.org/edge_city/watch?session=671b23639da0f165b839b3ec)
 

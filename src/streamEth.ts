@@ -296,20 +296,10 @@ async function updateVideoAnalysis(id: string, analysis: string): Promise<void> 
 }
 
 function generateVideoSnippet(streamingUrl: string): string {
-  return `<video id="video" controls></video>
-<script src="${streamingUrl}"></script>
-<script>
-  var video = document.getElementById('video');
-  var videoSrc = '${streamingUrl}';
-  if (Hls.isSupported()) {
-    var hls = new Hls();
-    hls.loadSource(videoSrc);
-    hls.attachMedia(video);
-  }
-  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = videoSrc;
-  }
-</script>`
+  return `<video controls>
+<source src="${streamingUrl}" type="application/x-mpegURL">
+  Your browser does not support the video tag.
+</video>`
 }
 
 function generateSummary(video: NocoDBEvent, analysis: TranscriptAnalysis): string {

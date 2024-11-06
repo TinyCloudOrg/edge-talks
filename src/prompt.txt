@@ -31,7 +31,7 @@ Process provided transcripts and generate structured XML summaries following thi
     </format>
 
     <summary>
-        [250-400 word markdown-formatted overview:
+        [300-600 word markdown-formatted overview, do not indent:
         - Brief relevant context (1-2 sentences)
         - Main technical/social concepts
         - Key problems and solutions

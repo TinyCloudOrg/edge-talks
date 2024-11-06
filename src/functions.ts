@@ -30,7 +30,6 @@ export async function getMetadataFromSession(sessionId: string): Promise<VideoMe
         }
         
         const data = await response.json();
-        console.log(data);
         if (!data.data) {
             throw new Error('No data found');
         }
@@ -58,7 +57,6 @@ export async function getDownloadUrlFromAsset(assetId: string): Promise<string |
         }
         
         const data = await response.json();
-        console.log(data);
         
         // Return the playback URL from the response
         return data.data.downloadUrl || null;
@@ -78,15 +76,7 @@ async function getPlaybackUrlFromSession(sessionId: string): Promise<string | nu
     return getDownloadUrlFromAsset(assetId);
 }
 
-// const sessionId = '6725d82df861dff095655a38';
-// const playbackUrl = await getPlaybackUrlFromSession(sessionId);
-// const transcript = await transcribeStream(playbackUrl || '');
-// console.log(transcript);
-// console.log(playbackUrl);
-
-
 // transcribe the stream
-
 async function transcribeStream(playbackUrl: string) {
     const apiKey = config.ASSEMBLYAI_API_KEY;
     const transcriber = new AssemblyAITranscriber(apiKey);

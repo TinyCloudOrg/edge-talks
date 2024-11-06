@@ -1,20 +1,26 @@
+import { storeAllVideos, transcribeAllVideos } from './streamEth';
 
+const command = process.argv[2];
 
-// database
-// stream_eth_id
-// name
-// description
-// stream_eth_url
-// playback_url
-// download_url
-// asset_id
-// transcript
-// num_speakers
+async function main() {
+  try {
+    switch (command) {
+      case 'store':
+        await storeAllVideos();
+        console.log('Successfully stored all videos');
+        break;
+      case 'transcribe':
+        await transcribeAllVideos();
+        console.log('Successfully transcribed all videos');
+        break;
+      default:
+        console.error('Please specify either "store" or "transcribe" as an argument');
+        process.exit(1);
+    }
+  } catch (error) {
+    console.error(`Error processing ${command}:`, error);
+    process.exit(1);
+  }
+}
 
-
-// get all videos
-// for each video
-// get metadata
-// get playback url
-// transcribe video
-// store in db
+main();

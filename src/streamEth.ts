@@ -1,11 +1,7 @@
-import axios from 'axios';
 import { Api } from "nocodb-sdk";
 import { config } from './config';
-import { VideoMetadata } from './types';
 import { getAllSessions, getDownloadUrlFromAsset } from './functions';
 import { AssemblyAITranscriber } from './transcriber';
-
-
 
 interface NocoDBEvent {
   id?: string;
@@ -27,21 +23,6 @@ const nocoApi = new Api({
     "xc-token": config.NOCODB_API_KEY
   }
 });
-
-// In-memory cache for performance
-const eventCache: Set<number> = new Set();
-
-// get all videos
-  // store in db
-    // stream_eth_id, name, description, stream_eth_url, playback_url, download_url, asset_id
-
-
-// transcribe videos
-  // get videos with no transcript
-    // for each video
-      // transcribe video
-      // store in db
-
 
 async function findVideoInNocoDB(streamEthId: string): Promise<NocoDBEvent | null> {
   try {
@@ -142,7 +123,8 @@ async function updateVideoTranscript(
       id,
       {
         transcript,
-        num_speakers: numSpeakers
+        num_speakers: numSpeakers,
+        auto_highlights: true
       }
     );
   } catch (error) {

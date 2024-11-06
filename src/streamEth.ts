@@ -360,9 +360,10 @@ async function exportSummariesToMarkdown(): Promise<void> {
 
     // Export each video's summary to a markdown file
     for (const video of videos) {
+      const name = video.name.replace(/[#]/g, '').trim();
       const summary = video.summary!.replace(/        /g, '');
-      fs.writeFileSync(`documents/${video.name}.md`, summary!);
-      console.log(`Exported summary for video ${video.Id} to documents/${video.name}.md`);
+      fs.writeFileSync(`documents/${name}.md`, summary!);
+      console.log(`Exported summary for video ${video.Id} to documents/${name}.md`);
     }
   } catch (error) {
     console.error('Error exporting summaries:', error);

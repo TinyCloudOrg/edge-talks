@@ -1,32 +1,35 @@
 # BCAD - Jmill & Lucy Qiu Summary
 
 ## Overview
-Watch presentation [here](https://streameth.org/edge_city/watch?session=6713277d8f864ede0342eddf)
+Watch presentation [here](https://streameth.org/edge_city/watch?session=670e4cde50c4a85480bfdd69)
 
 ## Summary
-- BCAD is a creative studio run by J. Mill and Lucy Qiu that explores experimental projects involving AI, blockchain, and digital art/games.
-- They showcased various AI-generated artworks, including a graphic novel depicting Lucy's psychedelic trip and an AI-generated "coffee table" art book. 
-- They created an AI-written book called "Mula Bonding" using language models and rudimentary text-to-image generation before stable diffusion.
-- Software projects included Spaghettify (a code obfuscation VS Code extension), Bella Coven (an early AI Tarot reader), and Coke Diffusion (adding Coca-Cola branding to AI image generation).
-- They built a Discord bot called Boss Captcha that creates CAPTCHAs for humans using AI-generated images from mobile games.
-- Physical projects involved sticker designs, an "Internet Yamaichi" festival with experiential art installations, and AI cookie recipes.
-- They created a game called Mirage Garage at a hackathon, exploring using language models as non-deterministic rules engines.
+- BCAD (Before Cat, After Doggo) is a creative studio founded by J. Mill and Lucy Qiu that explores experimental art, technology, and social innovation through various projects.
+- They create books, games, digital art, and physical installations using cutting-edge technologies like AI image generation, language models, and blockchain.
+- One of their notable projects is a graphic novel created by Lucy, where she used AI image generation to capture the visuals of a psychedelic trip she experienced.
+- They also published one of the first books entirely written by language models, exploring themes of advice and parables through the lens of elemental gods.
+- BCAD develops digital tools like Spaghettify (a VS Code extension to make code worse), AI Tarot card readers, and games that use language models as rule engines for non-deterministic gameplay.
+- Their physical installations and events, such as the Bombay Beachy Yamaichi, combine digital and analog elements, encouraging community participation and creative exchange.
+- The presentation showcased various projects, demonstrating BCAD's innovative approaches to art, technology, and social experimentation.
 
 ## Key Takeaways
-- BCAD combines technical skills with artistic expression to create thought-provoking AI/blockchain experiments
-- Their projects playfully explore AI capabilities while probing societal implications
-- Using language models as game rules engines enables unique, non-deterministic gameplay
-- Incorporating AI into physical installations and events creates engaging, interactive art experiences
-- Their work spans diverse media from software to books to participatory festivals
-- They aim to continue innovating at the intersection of technology and creativity
+- BCAD explores the intersection of art, technology, and social experimentation through a diverse range of projects, from books and games to physical installations and digital tools.
+- Their work incorporates cutting-edge technologies like AI image generation, language models, and blockchain in innovative and creative ways.
+- BCAD's projects often challenge traditional boundaries and aim to foster community participation and creative exchange.
+- Their approach combines digital and analog elements, creating immersive and interactive experiences for participants.
+- The presentation showcased BCAD's ability to experiment with new technologies and push the boundaries of what is possible in the realms of art, technology, and social innovation.
+- BCAD's work highlights the potential for using AI and other emerging technologies in creative and unconventional ways, opening up new avenues for artistic expression and social engagement.
+- Their projects demonstrate the importance of interdisciplinary collaboration and the fusion of different fields, leading to novel and thought-provoking outcomes.
 
 ## Speakers
 - J. Mill
-- Co-founder of BCAD creative studio
-- Software engineer exploring AI/blockchain applications
-- Key contributions: Spaghettify, Boss Captcha, Mirage Garage game
+- Co-founder of BCAD
+- Software engineer
+- Expertise in digital art, games, and experimental technology
+- Key contributions: Spaghettify, Mirage Garage game, digital art projects
 - Lucy Qiu
 - Co-founder of BCAD
-- Digital artist working with AI image generation
-- Key contributions: Psychedelic graphic novel, sticker designs, Bella Coven Tarot reader
+- Software engineer
+- Expertise in AI art, graphic novels, and social innovation
+- Key contributions: AI-generated graphic novel, book projects, sticker art
 

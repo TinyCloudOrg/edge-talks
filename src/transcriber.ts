@@ -26,7 +26,8 @@ class AssemblyAITranscriber implements AudioTranscriber {
   async transcribe(filepath: string): Promise<{text: string | null | undefined, num_speakers: number}> {
     const data = {
       audio_url: filepath,
-      speaker_labels: true
+      speaker_labels: true,
+      auto_highlights: true
     };
 
     const transcript = await this.assemblyClient.transcripts.create(data);

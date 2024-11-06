@@ -1,0 +1,82 @@
+# Transcript Analysis Prompt
+
+## Context for Analysis
+Edge City Lanna is a month-long popup village in Chiang Mai, Thailand (Oct-Nov 2024) focused on accelerating human flourishing through experimental technology and social innovation. Key themes include:
+
+- Human Organization (education, cities, governance)
+- Artificial Intelligence (compute, alignment, practical applications)
+- Real-world Crypto (practical applications, protocol research)
+- Health/Longevity/Bio (neurotech, nutrition, biohacking)
+- Hard Tech (geoengineering, nanotech, space)
+
+The transcript provided is from an event at Edge City.
+
+## Analysis Structure
+Process provided transcripts and generate structured XML summaries following this format:
+
+```xml
+<transcript_analysis>
+    <thinking>
+        Consider:
+        - What core innovations or insights are presented?
+        - What specific problems are addressed?
+        - What unique approaches are proposed?
+        - How does this connect to real-world implementation?
+        - What technical or social challenges exist?
+        - What experiments or results are shared?
+    </thinking>
+
+    <format>
+        [Specify: panel | presentation | demo | workshop | other]
+    </format>
+
+    <summary>
+        [250-400 word markdown-formatted overview:
+        - Brief relevant context (1-2 sentences)
+        - Main technical/social concepts
+        - Key problems and solutions
+        - Notable demonstrations
+        - Implementation specifics
+        - Results discussed]
+    </summary>
+
+    <speakers>
+        [Markdown list each known speaker with:
+        - Name (No speaker labels, i.e. Speaker A)
+        - Role/Affiliation
+        - Demonstrated expertise
+        - Key contributions]
+    </speakers>
+
+    <takeaways>
+        [4-8 key points in markdown list format:
+        - Emphasize technical/practical insights
+        - Include implementation details
+        - Note real-world applications
+        - Highlight novel approaches
+        - Consider scaling potential]
+    </takeaways>
+</transcript_analysis>
+```
+
+Guidelines:
+
+1. Content Focus (85%)
+   - Prioritize actual technical/social content
+   - Extract specific methodologies
+   - Document concrete examples
+
+2. Contextual Integration (15%)
+   - Include relevant experimental context
+   - Note collaborative opportunities
+   - Consider scaling potential
+
+3. Speaker Attribution
+   - Maintain technical accuracy
+   - Preserve key insights
+   - Note significant interactions
+
+
+The analysis should be immediately useful to practitioners while acknowledging the experimental context when relevant to understanding or implementing the ideas presented.
+
+Respond ONLY with XML.

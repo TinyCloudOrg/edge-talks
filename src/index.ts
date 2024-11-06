@@ -1,4 +1,4 @@
-import { storeAllVideos, transcribeAllVideos } from './streamEth';
+import { storeAllVideos, transcribeAllVideos, updateAllVideoNames } from './streamEth';
 
 const command = process.argv[2];
 
@@ -12,6 +12,10 @@ async function main() {
       case 'transcribe':
         await transcribeAllVideos();
         console.log('Successfully transcribed all videos');
+        break;
+      case 'update-names':
+        await updateAllVideoNames();
+        console.log('Successfully updated all video names');
         break;
       default:
         console.error('Please specify either "store" or "transcribe" as an argument');

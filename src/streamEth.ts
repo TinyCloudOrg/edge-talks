@@ -295,11 +295,30 @@ async function updateVideoAnalysis(id: string, analysis: string): Promise<void> 
   }
 }
 
+function generateVideoSnippet(streamingUrl: string): string {
+  return `<video id="video" controls></video>
+<script src="${streamingUrl}"></script>
+<script>
+  var video = document.getElementById('video');
+  var videoSrc = '${streamingUrl}';
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>`
+}
+
 function generateSummary(video: NocoDBEvent, analysis: TranscriptAnalysis): string {
   const markdown = `# ${video.name} Summary
 
-## Overview
-Watch ${analysis.format} [here](${video.stream_eth_url})
+## Video
+${generateVideoSnippet(video.playback_url)}
+
+Watch ${analysis.format} [at StreamETH](${video.stream_eth_url})
 
 ## Summary
 ${analysis.summary}
@@ -347,6 +366,30 @@ Transcript: ${video.transcript}
   }
 }
 
+async function regenerateSummariesFromAnalysis(): Promise<void> {
+  try {
+    const videos = await getVideosWithField('analysis');
+    console.log(`Regenerating summaries for ${videos.length} videos...`);
+
+    for (const video of videos) {
+      console.log(`Regenerating summary for video ${video.Id} (${video.name})...`);
+      
+      // Parse stored analysis
+      const analysis = JSON.parse(video.analysis!);
+      
+      // Generate new summary from analysis
+      const summary = generateSummary(video, analysis);
+
+      // Update summary in database
+      await updateVideoSummary(video.Id!, summary);
+      console.log(`Updated summary for video ${video.Id}`);
+    }
+  } catch (error) {
+    console.error('Error regenerating summaries:', error);
+    throw error;
+  }
+}
+
 async function exportSummariesToMarkdown(): Promise<void> {
   try {
     // Get all videos that have summaries
@@ -380,6 +423,7 @@ export {
   updateAllVideoNames,
   updateAllSummaries,
   exportSummariesToMarkdown,
+  regenerateSummariesFromAnalysis,
 };
 
 

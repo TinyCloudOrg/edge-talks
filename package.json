@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "tsx src/index.ts",
-    "store": "bun src/index.ts store",
+    "store": "bun src/index.ts store", 
     "transcribe": "bun src/index.ts transcribe",
-    "dev": "npx flowershow@latest preview",
-    "build": "npx flowershow@latest build && npx flowershow@latest export"
+    "copy": "bash scripts/copy.sh"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",

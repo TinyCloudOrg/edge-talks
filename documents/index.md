@@ -7,6 +7,8 @@ This site is a colection of all the recorded talks and discussions from Edge Cit
 
 Edge City Lanna is a month-long popup village taking place in Chiang Mai, Thailand from October 10th - November 10th. It's an immersive experience designed for innovators, builders, and visionaries working to create a better future.
 
+### View all Summaries [here](/summary)
+
 ## Event Categories
 
 ### Community Events

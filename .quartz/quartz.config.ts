@@ -9,7 +9,7 @@ import * as Plugin from "./quartz/plugins"
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "Edge Lanna Talks",
-    pageTitleSuffix: "Lanna is an IRL experimentation lab for new ideas, tech, culture, and organizations, all dedicated to accelerating human flourishing",
+    pageTitleSuffix: "Talks from Edge Lanna, an IRL experimentation lab for new ideas, tech, culture, and organizations, all dedicated to accelerating human flourishing",
     enableSPA: true,
     enablePopovers: true,
     analytics: {

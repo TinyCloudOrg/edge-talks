@@ -99,15 +99,34 @@ async function storeAllVideos(): Promise<void> {
 
 async function getVideosWithoutField(field: string): Promise<NocoDBEvent[]> {
   try {
-    const response = await nocoApi.dbTableRow.list(
-      "noco",
-      config.NOCODB_PROJECT_NAME,
-      config.NOCODB_TABLE_ID,
-      {
-        where: `(${field},blank,)`
+    let allVideos: NocoDBEvent[] = [];
+    let offset = 0;
+    const limit = 25; // NocoDB's default page size
+    
+    while (true) {
+      const response = await nocoApi.dbTableRow.list(
+        "noco",
+        config.NOCODB_PROJECT_NAME,
+        config.NOCODB_TABLE_ID,
+        {
+          where: `(${field},blank,)`,
+          limit,
+          offset
+        }
+      );
+      
+      const videos = response.list as NocoDBEvent[];
+      allVideos = [...allVideos, ...videos];
+      
+      // If we got fewer videos than the limit, we've reached the end
+      if (videos.length < limit) {
+        break;
       }
-    );
-    return response.list as NocoDBEvent[];
+      
+      offset += limit;
+    }
+
+    return allVideos;
   } catch (error) {
     console.error(`Error getting videos without ${field}:`, error);
     throw error;
@@ -116,15 +135,34 @@ async function getVideosWithoutField(field: string): Promise<NocoDBEvent[]> {
 
 async function getVideosWithField(field: string): Promise<NocoDBEvent[]> {
   try {
-    const response = await nocoApi.dbTableRow.list(
-      "noco",
-      config.NOCODB_PROJECT_NAME,
-      config.NOCODB_TABLE_ID,
-      {
-        where: `(${field},notblank,)`
+    let allVideos: NocoDBEvent[] = [];
+    let offset = 0;
+    const limit = 25; // NocoDB's default page size
+    
+    while (true) {
+      const response = await nocoApi.dbTableRow.list(
+        "noco",
+        config.NOCODB_PROJECT_NAME,
+        config.NOCODB_TABLE_ID,
+        {
+          where: `(${field},notblank,)`,
+          limit,
+          offset
+        }
+      );
+      
+      const videos = response.list as NocoDBEvent[];
+      allVideos = [...allVideos, ...videos];
+      
+      // If we got fewer videos than the limit, we've reached the end
+      if (videos.length < limit) {
+        break;
       }
-    );
-    return response.list as NocoDBEvent[];
+      
+      offset += limit;
+    }
+
+    return allVideos;
   } catch (error) {
     console.error(`Error getting videos with ${field}:`, error);
     throw error;
@@ -322,7 +360,8 @@ async function exportSummariesToMarkdown(): Promise<void> {
 
     // Export each video's summary to a markdown file
     for (const video of videos) {
-      fs.writeFileSync(`documents/${video.name}.md`, video.summary!);
+      const summary = video.summary!.replace(/        /g, '');
+      fs.writeFileSync(`documents/${video.name}.md`, summary!);
       console.log(`Exported summary for video ${video.Id} to documents/${video.name}.md`);
     }
   } catch (error) {

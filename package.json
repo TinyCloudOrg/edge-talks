@@ -7,7 +7,7 @@
     "store": "bun src/index.ts store",
     "transcribe": "bun src/index.ts transcribe",
     "dev": "npx flowershow@latest preview",
-    "build": "npx flowershow@latest export"
+    "build": "npx flowershow@latest build && npx flowershow@latest export"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",

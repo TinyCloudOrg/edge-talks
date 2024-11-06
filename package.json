@@ -5,7 +5,9 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "store": "bun src/index.ts store",
-    "transcribe": "bun src/index.ts transcribe"
+    "transcribe": "bun src/index.ts transcribe",
+    "dev": "npx flowershow@latest preview",
+    "build": "npx flowershow@latest export"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",

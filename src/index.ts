@@ -1,4 +1,4 @@
-import { storeAllVideos, transcribeAllVideos, updateAllVideoNames, updateAllSummaries } from './streamEth';
+import { storeAllVideos, transcribeAllVideos, updateAllVideoNames, updateAllSummaries, exportSummariesToMarkdown } from './streamEth';
 
 const command = process.argv[2];
 
@@ -20,6 +20,10 @@ async function main() {
       case 'summaries':
         await updateAllSummaries();
         console.log('Successfully updated all video summaries');
+        break;
+      case 'export':
+        await exportSummariesToMarkdown();
+        console.log('Successfully exported all video summaries to markdown');
         break;
       default:
         console.error('Please specify either "store" or "transcribe" as an argument');

@@ -114,6 +114,23 @@ async function getVideosWithoutField(field: string): Promise<NocoDBEvent[]> {
   }
 }
 
+async function getVideosWithField(field: string): Promise<NocoDBEvent[]> {
+  try {
+    const response = await nocoApi.dbTableRow.list(
+      "noco",
+      config.NOCODB_PROJECT_NAME,
+      config.NOCODB_TABLE_ID,
+      {
+        where: `(${field},notblank,)`
+      }
+    );
+    return response.list as NocoDBEvent[];
+  } catch (error) {
+    console.error(`Error getting videos with ${field}:`, error);
+    throw error;
+  }
+}
+
 async function updateVideoTranscript(
   id: string, 
   transcript: string, 
@@ -292,6 +309,28 @@ Transcript: ${video.transcript}
   }
 }
 
+async function exportSummariesToMarkdown(): Promise<void> {
+  try {
+    // Get all videos that have summaries
+    const videos = await getVideosWithField('summary');
+    console.log(`Exporting summaries for ${videos.length} videos...`);
+
+    // Create documents directory if it doesn't exist
+    if (!fs.existsSync('documents')) {
+      fs.mkdirSync('documents');
+    }
+
+    // Export each video's summary to a markdown file
+    for (const video of videos) {
+      fs.writeFileSync(`documents/${video.name}.md`, video.summary!);
+      console.log(`Exported summary for video ${video.Id} to documents/${video.name}.md`);
+    }
+  } catch (error) {
+    console.error('Error exporting summaries:', error);
+    throw error;
+  }
+}
+
 // Export the main functions
 export {
   storeAllVideos,
@@ -300,6 +339,7 @@ export {
   createVideoInNocoDB,
   updateAllVideoNames,
   updateAllSummaries,
+  exportSummariesToMarkdown,
 };
 
 

@@ -2,7 +2,9 @@ import { Api } from "nocodb-sdk";
 import { config } from './config';
 import { getAllSessions, getDownloadUrlFromAsset } from './functions';
 import { AssemblyAITranscriber } from './transcriber';
+import { analyzeTranscript, TranscriptAnalysis } from './llm';
 import fs from 'fs';
+
 interface NocoDBEvent {
   Id?: string;
   stream_eth_id: string;
@@ -14,6 +16,8 @@ interface NocoDBEvent {
   asset_id: string;
   transcript: string;
   num_speakers: number;
+  summary?: string;
+  analysis?: string;
 }
 
 // Initialize NocoDB API client
@@ -146,12 +150,12 @@ async function transcribeAllVideos(): Promise<void> {
 
       console.log(`Transcribing video ${video.Id} (${video.name})...`);
       const transcriptResult = await transcriber.transcribe(video.download_url);
-      // Save transcript result to file
-      if (transcriptResult && transcriptResult.text) {
-        const filename = `transcript-${video.Id}.json`;
-        fs.writeFileSync(filename, JSON.stringify(transcriptResult, null, 2));
-        console.log(`Saved transcript to ${filename}`);
-      }
+      // // Save transcript result to file
+      // if (transcriptResult && transcriptResult.text) {
+      //   const filename = `transcript-${video.Id}.json`;
+      //   fs.writeFileSync(filename, JSON.stringify(transcriptResult, null, 2));
+      //   console.log(`Saved transcript to ${filename}`);
+      // }
       if (transcriptResult && transcriptResult.text) {
         await updateVideoTranscript(
           video.Id!,
@@ -202,7 +206,91 @@ async function updateAllVideoNames(): Promise<void> {
   }
 }
 
+async function updateVideoSummary(id: string, summary: string): Promise<void> {
+  try {
+    await nocoApi.dbTableRow.update(
+      "noco",
+      config.NOCODB_PROJECT_NAME,
+      config.NOCODB_TABLE_ID,
+      id,
+      {
+        summary
+      }
+    );
+  } catch (error) {
+    console.error('Error updating video summary:', error);
+    throw error;
+  }
+}
 
+async function updateVideoAnalysis(id: string, analysis: string): Promise<void> {
+  try {
+    await nocoApi.dbTableRow.update(
+      "noco",
+      config.NOCODB_PROJECT_NAME,
+      config.NOCODB_TABLE_ID,
+      id,
+      {
+        analysis
+      }
+    );
+  } catch (error) {
+    console.error('Error updating video summary:', error);
+    throw error;
+  }
+}
+
+function generateSummary(video: NocoDBEvent, analysis: TranscriptAnalysis): string {
+  const markdown = `# ${video.name} Summary
+
+## Overview
+Watch ${analysis.format} [here](${video.stream_eth_url})
+
+## Summary
+${analysis.summary}
+
+## Key Takeaways
+${analysis.takeaways.join('\n')}
+
+## Speakers
+${analysis.speakers.join('\n')}
+
+`;
+  return markdown;
+}
+
+
+async function updateAllSummaries(): Promise<void> {
+  try {
+    // Get videos that have transcripts but no summaries
+    const videos = await getVideosWithoutField('summary');
+    const videosWithTranscripts = videos.filter(video => video.transcript);
+    
+    console.log(`Generating summaries for ${videosWithTranscripts.length} videos...`);
+
+    for (const video of videosWithTranscripts) {
+      console.log(`Generating summary for video ${video.Id} (${video.name})...`);
+      
+      // Prepare context for LLM
+      const context = `
+Name: ${video.name}
+Description: ${video.description}
+Transcript: ${video.transcript}
+`;
+      
+      // Generate summary using LLM
+      const analysis = await analyzeTranscript(context);
+      await updateVideoAnalysis(video.Id!, JSON.stringify(analysis));
+      const summary = generateSummary(video, analysis);
+
+      await updateVideoSummary(video.Id!, summary);
+      console.log(`Updated summary for video ${video.Id}`);
+    }
+  } catch (error) {
+    console.error('Error updating summaries:', error);
+    throw error;
+  }
+}
 
 // Export the main functions
 export {
@@ -211,6 +299,7 @@ export {
   findVideoInNocoDB,
   createVideoInNocoDB,
   updateAllVideoNames,
+  updateAllSummaries,
 };
 
 

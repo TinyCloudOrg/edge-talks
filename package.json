@@ -6,7 +6,8 @@
     "start": "tsx src/index.ts",
     "store": "bun src/index.ts store", 
     "transcribe": "bun src/index.ts transcribe",
-    "copy": "bash scripts/copy.sh"
+    "copy": "bash scripts/copy.sh",
+    "build-docs": "pnpm copy && bash scripts/build.sh"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
